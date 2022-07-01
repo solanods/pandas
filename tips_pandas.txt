@@ -1,0 +1,27 @@
+# Read CSV
+df = pd.read_csv('/home/sol/Documentos/datasets/telecom_users.csv')
+
+# Zip the columns
+df = pd.DataFrame(list(zip(lista1, lista2, lista3)), columns = ['Coluna1', 'Coluna2', 'Coluna3'])
+
+# Save a CSV file without index column
+df.to_csv('filename.csv', index=False)
+
+# Numero de visualizações
+pd.set_option('display.max_rows', 3000)
+
+# Drop columns
+df = df.drop(columns=['Codigo', 'Genero'])
+
+# Definir a coluna 'angulo' como índice
+df.set_index('angulo', inplace=True)
+
+# Aplicar query em coluna 'hectares'
+df.query('hectares > 100')
+
+# A melhor sintaxe para agrupar duas colunas
+df.groupby('estado')['hectares']
+
+# Somando a coluna hectares com os rótulos da coluna estado
+df.groupby('estado')['hectares'].sum()
+
